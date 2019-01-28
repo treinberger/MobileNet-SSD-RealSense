@@ -6,6 +6,7 @@ https://software.intel.com/en-us/articles/OpenVINO-RelNotes#inpage-nav-2-2**
   
 **【Dec 31, 2018】 `USB Camera + MultiStick + MultiProcess mode` correspondence with NCS2 is completed.**<br>
 **【Jan 04, 2019】 Tune performance four times. MultiStickSSDwithRealSense_OpenVINO_NCS2.py. Core i7 -> NCS2 x1, 48 FPS**
+** [Jan 28, 2019] Performance optimization: SingleStickWithPiCam_OpenVINO_NCS2.py and SingleStickWithUSBCamera_OpenVINO_NCS2.py RPi 3B+ -° NCS2 x1, 15.5 FPS **
 <br><br>
 Measure the distance to the object with RealSense D435 while performing object detection by MobileNet-SSD(MobileNetSSD) with RaspberryPi 3 boosted with Intel Movidius Neural Compute Stick.<br>
 "USB Camera mode" can not measure the distance, but it operates at high speed.<br>
@@ -92,6 +93,7 @@ And, This is support for simple clustering function. (To prevent thermal runaway
 [Dec 22, 2018]　Only "USB Camera + single thread mode" correspondence with NCS 2 is completed<br>
 [Dec 31, 2018]　"USB Camera + MultiStick + MultiProcess mode" correspondence with NCS2 is completed<br>
 [Jan 04, 2019]　Tune performance four times. MultiStickSSDwithRealSense_OpenVINO_NCS2.py<br>
+[Jan 28, 2019] Performance optimization: SingleStickWithPiCam_OpenVINO_NCS2.py and SingleStickWithUSBCamera_OpenVINO_NCS2.py
 </div></details><br><br>
 
 ## Motion image
@@ -118,6 +120,8 @@ And, This is support for simple clustering function. (To prevent thermal runaway
 ![15](https://github.com/PINTO0309/MobileNet-SSD-RealSense/blob/master/media/15.png)
 ### **USB Camera Mode NCS2 SingleStick + RaspberryPi3（Synchronous screen drawing / SingleStickSSDwithUSBCamera_OpenVINO_NCS2.py）**<br>
 **【YouTube Movie】　https://youtu.be/GJNkX-ZBuC8**<br><br>
+### **Raspberry Pi Camera NCS2 SingleStick + RaspberryPi3B+（SingleStickSSDwithPiCam_OpenVINO_NCS2.py）**<br>
+**【YouTube Movie】　https://youtu.be/63fXLATtw3Q (optimized preprocessing)**<br><br>
 ![16](https://github.com/PINTO0309/MobileNet-SSD-RealSense/blob/master/media/16.gif)<br>
 ### **USB Camera Mode NCS2 SingleStick + Core i7（Synchronous screen drawing / SingleStickSSDwithUSBCamera_OpenVINO_NCS2.py）**<br>
 **【YouTube Movie】　https://youtu.be/1ogge90EuqI**<br><br>
