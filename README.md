@@ -4,7 +4,8 @@ RaspberryPi3(Raspbian Stretch) or Ubuntu16.04/UbuntuMate + Neural Compute Stick(
 **【Notice】December 19, 2018 OpenVINO has supported RaspberryPi + NCS2 !!  
 https://software.intel.com/en-us/articles/OpenVINO-RelNotes#inpage-nav-2-2**  
   
-**【Dec 31, 2018】 `USB Camera + MultiStick + MultiProcess mode` correspondence with NCS2 is completed.**
+**【Dec 31, 2018】 `USB Camera + MultiStick + MultiProcess mode` correspondence with NCS2 is completed.**<br>
+**【Jan 04, 2019】 Tune performance four times. MultiStickSSDwithRealSense_OpenVINO_NCS2.py. Core i7 -> NCS2 x1, 48 FPS**
 <br><br>
 Measure the distance to the object with RealSense D435 while performing object detection by MobileNet-SSD(MobileNetSSD) with RaspberryPi 3 boosted with Intel Movidius Neural Compute Stick.<br>
 "USB Camera mode" can not measure the distance, but it operates at high speed.<br>
@@ -16,7 +17,8 @@ And, This is support for simple clustering function. (To prevent thermal runaway
 **【Japanese Article4】 https://qiita.com/PINTO/items/62859125c5381690623c**<br>
 **【Japanese Article5】 https://qiita.com/PINTO/items/127c84319822a0776420**<br>
 **【Japanese / English Article6】 [Boost RaspberryPi3 with Neural Compute Stick 2 (1 x NCS2) and feel the explosion performance of MobileNet-SSD　(If it is Core i7, 21 FPS)](https://qiita.com/PINTO/items/fc1fcecce4d5600c20bb#boost-raspberrypi3-with-neural-compute-stick-2-1-x-ncs2-and-feel-the-explosion-performance-of-mobilenet-ssdif-it-is-core-i7-21-fps)**<br>
-**【Japanese / English Article7】 [[24 FPS] Boost RaspberryPi3 with four Neural Compute Stick 2 (NCS2) MobileNet-SSD / YoloV3 [48 FPS for Core i7]](https://qiita.com/PINTO/items/94d5557fca9911cc892d#24-fps-boost-raspberrypi3-with-four-neural-compute-stick-2-ncs2-mobilenet-ssd--yolov3-48-fps-for-core-i7)**<br><br>
+**【Japanese / English Article7】 [[24 FPS] Boost RaspberryPi3 with four Neural Compute Stick 2 (NCS2) MobileNet-SSD / YoloV3 [48 FPS for Core i7]](https://qiita.com/PINTO/items/94d5557fca9911cc892d#24-fps-boost-raspberrypi3-with-four-neural-compute-stick-2-ncs2-mobilenet-ssd--yolov3-48-fps-for-core-i7)**<br>
+**【Japanese / English Article8】 [[24 FPS, 48 FPS] RaspberryPi3 + Neural Compute Stick 2, The day when the true power of one NCS2 was drawn out and "Goku" became a true "super saiya-jin"](https://qiita.com/PINTO/items/cb7ba1dae4bfc74a5966#24-fps-48-fps-raspberrypi3--neural-compute-stick-2-the-day-when-the-true-power-of-one-ncs2-was-drawn-out-and-goku-became-a-true-super-saiya-jin)**<br><br>
 
 ## Summary
 **Performance measurement result each number of sticks. (It is Detection rate. It is not a Playback rate.)**<br>
@@ -89,6 +91,7 @@ And, This is support for simple clustering function. (To prevent thermal runaway
 [Oct 12, 2018]　【Experimental】 Added Semantic Segmentation model [Tensorflow-ENet] (semanticsegmentation_enet.pb) https://github.com/PINTO0309/TensorFlow-ENet.git<br>
 [Dec 22, 2018]　Only "USB Camera + single thread mode" correspondence with NCS 2 is completed<br>
 [Dec 31, 2018]　"USB Camera + MultiStick + MultiProcess mode" correspondence with NCS2 is completed<br>
+[Jan 04, 2019]　Tune performance four times. MultiStickSSDwithRealSense_OpenVINO_NCS2.py<br>
 </div></details><br><br>
 
 ## Motion image
@@ -116,16 +119,25 @@ And, This is support for simple clustering function. (To prevent thermal runaway
 ### **USB Camera Mode NCS2 SingleStick + RaspberryPi3（Synchronous screen drawing / SingleStickSSDwithUSBCamera_OpenVINO_NCS2.py）**<br>
 **【YouTube Movie】　https://youtu.be/GJNkX-ZBuC8**<br><br>
 ![16](https://github.com/PINTO0309/MobileNet-SSD-RealSense/blob/master/media/16.gif)<br>
-### **USB Camera Mode NCS2 SingleStick + Core i7（Synchronous screen drawing / MultiStickSSDwithUSBCamera_OpenVINO_NCS2.py）**<br>
+### **USB Camera Mode NCS2 SingleStick + Core i7（Synchronous screen drawing / SingleStickSSDwithUSBCamera_OpenVINO_NCS2.py）**<br>
 **【YouTube Movie】　https://youtu.be/1ogge90EuqI**<br><br>
 ![17](https://github.com/PINTO0309/MobileNet-SSD-RealSense/blob/master/media/17.gif)<br>
-### **USB Camera Mode NCS2 x 4 Sticks + Core i7（Asynchronous screen drawing / MultiStickSSDwithRealSense_OpenVINO_NCS2.py）**<br>
-**【YouTube Movie】　https://youtu.be/HJLMB3an_Rw**<br><br>
-![18](https://github.com/PINTO0309/MobileNet-SSD-RealSense/blob/master/media/18.gif)<br>
-### **USB Camera Mode NCS2 x 4 Sticks + RaspberryPi3（Asynchronous screen drawing / MultiStickSSDwithRealSense_OpenVINO_NCS2.py）**<br>
-**【YouTube Movie】　https://youtu.be/RBU1sDHNqxs**<br><br>
-![19](https://github.com/PINTO0309/MobileNet-SSD-RealSense/blob/master/media/19.gif)<br>
-  
+### **USB Camera Mode NCS2 x 1 Stick + Core i7（Asynchronous screen drawing / MultiStickSSDwithRealSense_OpenVINO_NCS2.py）**<br>
+**【YouTube Movie】　https://youtu.be/Nx_rVDgT8uY**<br>
+```bash
+$ python3 MultiStickSSDwithRealSense_OpenVINO_NCS2.py -mod 1 -numncs 1
+```
+![23](https://github.com/PINTO0309/MobileNet-SSD-RealSense/blob/master/media/23.gif)<br>
+### **USB Camera Mode NCS2 x 1 Stick + RaspberryPi3（Asynchronous screen drawing / MultiStickSSDwithRealSense_OpenVINO_NCS2.py）**<br>
+**【YouTube Movie】　https://youtu.be/Xj2rw_5GwlI**<br>
+```bash
+$ python3 MultiStickSSDwithRealSense_OpenVINO_NCS2.py -mod 1 -numncs 1
+```
+![24](https://github.com/PINTO0309/MobileNet-SSD-RealSense/blob/master/media/24.gif)<br>
+### **USB Camera Mode NCS2 x 1 Stick + LattePanda Alpha（Asynchronous screen drawing / MultiStickSSDwithRealSense_OpenVINO_NCS2.py）[48 FPS]**<br>
+**https://twitter.com/PINTO03091/status/1081575747314057219**<br>
+<br>
+<br>
 ![20](https://github.com/PINTO0309/MobileNet-SSD-RealSense/blob/master/media/20.png)<br>
 ## Environment
 1．RaspberryPi3 + Raspbian Stretch (USB2.0 Port) or RaspberryPi3 + Ubuntu Mate or PC + Ubuntu16.04<br>
@@ -173,7 +185,7 @@ $ sudo reboot
 $ sudo nano /etc/dphys-swapfile
 CONF_SWAPSIZE=2048
 
-$ sudo /etc/init.d/dphys-swapfile restart swapon -s
+$ sudo /etc/init.d/dphys-swapfile restart;swapon -s
 ```
 3.Install NSCDK<br>
 ```bash
@@ -322,7 +334,7 @@ $ cd ~
 $ sudo apt update;sudo apt upgrade
 
 # Ubuntu16.04 Only
-$ sudo apt install mesa-utils* libglu1* libgles2-mesa-dev libopenal-dev
+$ sudo apt install mesa-utils* libglu1* libgles2-mesa-dev libopenal-dev gtk+-3.0
 
 # The latest version is unstable
 $ git clone -b v2.13.0 https://github.com/IntelRealSense/librealsense.git
@@ -332,17 +344,7 @@ $ cmake .. -DBUILD_EXAMPLES=true -DCMAKE_BUILD_TYPE=Release
 $ make -j1
 $ sudo make install
 ```
-11.Install OpenCV Wrapper
-```bash
-$ cd ~/librealsense/wrappers/opencv;mkdir build;cd build
-$ cmake ..
-$ nano ../latency-tool/CMakeLists.txt
-target_link_libraries(rs-latency-tool ${DEPENDENCIES} pthread)
-
-$ make -j $(($(nproc) + 1))
-$ sudo make install
-```
-12.Install Python binding
+11.Install Python binding
 ```bash
 $ cd ~/librealsense/build
 
@@ -357,14 +359,14 @@ $ cmake .. -DBUILD_PYTHON_BINDINGS=bool:true -DPYTHON_EXECUTABLE=$(which python)
 $ make -j1
 $ sudo make install
 ```
-13.Update PYTHON_PATH
+12.Update PYTHON_PATH
 ```bash
 $ nano ~/.bashrc
 export PYTHONPATH=$PYTHONPATH:/usr/local/lib
 
 $ source ~/.bashrc
 ```
-14.RealSense SDK import test
+13.RealSense SDK import test
 ```bash
 $ python3
 Python 3.5.3 (default, Jan 19 2017, 14:11:04) 
@@ -373,20 +375,20 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> import pyrealsense2
 >>> exit()
 ```
-15.Installing the OpenGL package for Python
+14.Installing the OpenGL package for Python
 ```bash
 $ sudo apt-get install python-opengl
 $ sudo -H pip3 install pyopengl
 $ sudo -H pip3 install pyopengl_accelerate
 ```
-16.Reduce the SWAP area to the default size (RaspberryPi+Raspbian Stretch / RaspberryPi+Ubuntu Mate Only)
+15.Reduce the SWAP area to the default size (RaspberryPi+Raspbian Stretch / RaspberryPi+Ubuntu Mate Only)
 ```bash
 $ sudo nano /etc/dphys-swapfile
 CONF_SWAPSIZE=100
 
-$ sudo /etc/init.d/dphys-swapfile restart swapon -s
+$ sudo /etc/init.d/dphys-swapfile restart;swapon -s
 ```
-17.Clone a set of resources
+16.Clone a set of resources
 ```bash
 $ git clone https://github.com/PINTO0309/MobileNet-SSD-RealSense.git
 ```
@@ -404,12 +406,14 @@ $ sudo reboot
 $ sudo nano /etc/dphys-swapfile
 CONF_SWAPSIZE=2048
 
-$ sudo /etc/init.d/dphys-swapfile restart swapon -s
+$ sudo /etc/init.d/dphys-swapfile restart;swapon -s
 ```
 3.Install OpenVINO
 ```bash
-$ wget https://drive.google.com/open?id=1rBl_3kU4gsx-x2NG2I5uIhvA3fPqm8uE -o l_openvino_toolkit_ie_p_2018.5.445.tgz
-$ tar -zxf l_openvino_toolkit_ie_p_2018.5.445.tgz
+$ curl -sc /tmp/cookie "https://drive.google.com/uc?export=download&id=1rBl_3kU4gsx-x2NG2I5uIhvA3fPqm8uE" > /dev/null
+$ CODE="$(awk '/_warning_/ {print $NF}' /tmp/cookie)"
+$ curl -Lb /tmp/cookie "https://drive.google.com/uc?export=download&confirm=${CODE}&id=1rBl_3kU4gsx-x2NG2I5uIhvA3fPqm8uE" -o l_openvino_toolkit_ie_p_2018.5.445.tgz
+$ tar -zxvf l_openvino_toolkit_ie_p_2018.5.445.tgz
 $ rm l_openvino_toolkit_ie_p_2018.5.445.tgz
 $ sed -i "s|<INSTALLDIR>|$(pwd)/inference_engine_vpu_arm|" inference_engine_vpu_arm/bin/setupvars.sh
 $ nano ~/.bashrc
@@ -431,7 +435,7 @@ $ sh inference_engine_vpu_arm/install_dependencies/install_NCS_udev_rules.sh
 Update udev rules so that the toolkit can communicate with your neural compute stick
 [install_NCS_udev_rules.sh] udev rules installed
 ```
-2.Update udev rule
+4.Update udev rule
 ```bash
 $ sudo apt install -y git libssl-dev libusb-1.0-0-dev pkg-config libgtk-3-dev
 $ sudo apt install -y libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev
@@ -440,7 +444,7 @@ $ cd /etc/udev/rules.d/
 $ sudo wget https://raw.githubusercontent.com/IntelRealSense/librealsense/master/config/99-realsense-libusb.rules
 $ sudo udevadm control --reload-rules && udevadm trigger
 ```
-3.Upgrade to "cmake 3.11.4"
+5.Upgrade to "cmake 3.11.4"
 ```bash
 $ cd ~
 $ wget https://cmake.org/files/v3.11/cmake-3.11.4.tar.gz
@@ -454,40 +458,30 @@ $ source ~/.bashrc
 $ cmake --version
 cmake version 3.11.4
 ```
-4.Register LD_LIBRARY_PATH
+6.Register LD_LIBRARY_PATH
 ```bash
 $ nano ~/.bashrc
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
 $ source ~/.bashrc
 ```
-5.Install Intel® RealSense™ SDK 2.0
+7.Install Intel® RealSense™ SDK 2.0
 ```bash
 $ cd ~
 $ sudo apt update;sudo apt upgrade
 
 # Ubuntu16.04 Only
-$ sudo apt install mesa-utils* libglu1* libgles2-mesa-dev libopenal-dev
+$ sudo apt install mesa-utils* libglu1* libgles2-mesa-dev libopenal-dev  gtk+-3.0
 
 # The latest version is unstable
 $ git clone -b v2.13.0 https://github.com/IntelRealSense/librealsense.git
 $ cd ~/librealsense;mkdir build;cd build
 
-$ cmake .. -DBUILD_EXAMPLES=true -DCMAKE_BUILD_TYPE=Release
+$ cmake .. -DBUILD_EXAMPLES=false -DCMAKE_BUILD_TYPE=Release
 $ make -j1
 $ sudo make install
 ```
-6.Install OpenCV Wrapper
-```bash
-$ cd ~/librealsense/wrappers/opencv;mkdir build;cd build
-$ cmake ..
-$ nano ../latency-tool/CMakeLists.txt
-target_link_libraries(rs-latency-tool ${DEPENDENCIES} pthread)
-
-$ make -j $(($(nproc) + 1))
-$ sudo make install
-```
-7.Install Python binding
+8.Install Python binding
 ```bash
 $ cd ~/librealsense/build
 
@@ -502,14 +496,14 @@ $ cmake .. -DBUILD_PYTHON_BINDINGS=bool:true -DPYTHON_EXECUTABLE=$(which python)
 $ make -j1
 $ sudo make install
 ```
-8.Update PYTHON_PATH
+9.Update PYTHON_PATH
 ```bash
 $ nano ~/.bashrc
 export PYTHONPATH=$PYTHONPATH:/usr/local/lib
 
 $ source ~/.bashrc
 ```
-9.RealSense SDK import test
+10.RealSense SDK import test
 ```bash
 $ python3
 Python 3.5.3 (default, Jan 19 2017, 14:11:04) 
@@ -518,20 +512,20 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> import pyrealsense2
 >>> exit()
 ```
-10.Installing the OpenGL package for Python
+11.Installing the OpenGL package for Python
 ```bash
 $ sudo apt-get install python-opengl
 $ sudo -H pip3 install pyopengl
 $ sudo -H pip3 install pyopengl_accelerate
 ```
-11.Reduce the SWAP area to the default size (RaspberryPi+Raspbian Stretch / RaspberryPi+Ubuntu Mate Only)
+12.Reduce the SWAP area to the default size (RaspberryPi+Raspbian Stretch / RaspberryPi+Ubuntu Mate Only)
 ```bash
 $ sudo nano /etc/dphys-swapfile
 CONF_SWAPSIZE=100
 
-$ sudo /etc/init.d/dphys-swapfile restart swapon -s
+$ sudo /etc/init.d/dphys-swapfile restart;swapon -s
 ```
-12.Clone a set of resources
+13.Clone a set of resources
 ```bash
 $ git clone https://github.com/PINTO0309/MobileNet-SSD-RealSense.git
 ```
