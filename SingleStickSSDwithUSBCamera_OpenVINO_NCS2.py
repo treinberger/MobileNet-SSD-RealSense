@@ -20,16 +20,17 @@ LABELS = ('background',
           'motorbike', 'person', 'pottedplant',
           'sheep', 'sofa', 'train', 'tvmonitor')
 
-camera_width = 320
-camera_height = 240
+camera_width = 640
+camera_height = 480
 
 cap = cv2.VideoCapture(0)
 cap.set(cv2.CAP_PROP_FPS, 30)
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, camera_width)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, camera_height)
 
-net = cv2.dnn.readNet('lrmodel/MobileNetSSD/MobileNetSSD_deploy.xml', 'lrmodel/MobileNetSSD/MobileNetSSD_deploy.bin')
+net = cv2.dnn.readNet('caffemodel/MobileNetSSD/MobileNetSSD_deploy.caffemodel', 'caffemodel/MobileNetSSD/MobileNetSSD_deploy.prototxt')
 net.setPreferableTarget(cv2.dnn.DNN_TARGET_MYRIAD)
+net.setPreferableBackend(cv2.dnn.DNN_BACKEND_INFERENCE_ENGINE)    
 
 try:
 
@@ -43,8 +44,9 @@ try:
         height = color_image.shape[0]
         width = color_image.shape[1]
 
-        blob = cv2.dnn.blobFromImage(color_image, 0.007843, size=(300, 300), mean=(127.5,127.5,127.5), swapRB=False, crop=False)
-        net.setInput(blob)
+        blob = cv2.dnn.blobFromImage(color_image, size=(300, 300), swapRB=False, crop=False, ddepth=cv2.CV_8U)
+        net.setInput(blob, scalefactor=0.007843, mean=[127.5, 127.5, 127.5])
+
         out = net.forward()
         out = out.flatten()
 
